@@ -7,5 +7,13 @@ public record CreateMediSupplyCommand(
 
 ) {
 
+    public CreateMediSupplyCommand {
+        if(id==null ) {
+            throw new IllegalArgumentException("Id cannot be null");
+        }
+        if(requestNotes==null || requestNotes.isBlank()) {
+            throw new IllegalArgumentException("Request notes cannot be null or blank");
+        }
+    }
 
 }
